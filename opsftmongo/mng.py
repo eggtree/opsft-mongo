@@ -4,6 +4,7 @@ import os
 
 def index():
     print 1
+    print os.environ['MONGO_HOST']
     client = MongoClient(os.environ['MONGO_HOST'],
                          int(os.environ['MONGO_PORT']))
     # check whether a username/pwd are set and if so
