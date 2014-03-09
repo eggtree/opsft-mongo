@@ -1,0 +1,7 @@
+pymongo
+Flask==0.10.1
+#requests==2.0.0
+Flask-RESTful==0.2.5
+#six==1.4.1 # needed by Flask-RESTful
+tornado==3.2
+
