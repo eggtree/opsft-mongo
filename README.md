@@ -3,15 +3,20 @@ opsft-mongo
 
 # local 
 run tests
+```
 tox
-# local server, port 5002
+````
+local server, port 5002
+```
 tox -e web
-
+```
 
 
 # openshift
+```
 mkdir example
-cd exmple
+cd example
+```
 create a python-2.7 application on openshift, call opsmng
 it will clone code from github into another git repo on the openshift node
 ```
