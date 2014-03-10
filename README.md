@@ -25,7 +25,7 @@ rhc cartridge add mongodb-2.4 -a opsmng
 ```
 
 push data to the openshift instance, 
-where <ssh-login> is the SSH entry from executing 'rhc app show opsmng'
+where ssh-login is the SSH entry from executing 'rhc app show opsmng'
 ```
 rsync -avz test.json <ssh-login>:~/app-root/data
 
