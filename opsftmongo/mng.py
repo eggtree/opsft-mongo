@@ -4,6 +4,7 @@ import os
 
 def index():
     print 1
+    print os.getenv('OPENSHIFT_MONGODB_DB_URL','blah')
     print os.environ['MONGO_HOST']
     client = MongoClient(os.environ['MONGO_HOST'],
                          int(os.environ['MONGO_PORT']))
