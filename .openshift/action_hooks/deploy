@@ -1,15 +1,11 @@
 #!/bin/bash
+# This deploy hook gets executed after dependencies are resolved and the
+# build hook has been run but before the application has been started back
+# up again. This script gets executed directly, so it could be python, php,
+# ruby, etc.
 set -eux
 
 echo "executing deploy"
-
-export MONGO_HOST=$OPENSHIFT_MONGODB_DB_HOST
-export MONGO_PORT=$OPENSHIFT_MONGODB_DB_PORT
-export MONGO_DB=$OPENSHIFT_APP_NAME
-export MONGO_USER=$OPENSHIFT_MONGODB_DB_USERNAME
-export MONGO_PWD=$OPENSHIFT_MONGODB_DB_PASSWORD
-
-echo $OPENSHIFT_PYTHON_DIR 
 
 mongoimport --db $OPENSHIFT_APP_NAME -c issuer --drop --file $OPENSHIFT_DATA_DIR/test.json --type json --host $OPENSHIFT_MONGODB_DB_HOST --port $OPENSHIFT_MONGODB_DB_PORT -u $OPENSHIFT_MONGODB_DB_USERNAME -p $OPENSHIFT_MONGODB_DB_PASSWORD
 
