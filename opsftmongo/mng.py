@@ -14,7 +14,10 @@ def index():
     # Normally you can wait and pick your database to connect to after 
     # MongoClient is initialized
     # Fortunately openshift stores users in the admin db
-    client = MongoClient(os.getenv('MONGO_DB_URL','mongodb://localhost'))
+    #
+    # if MONGO_DB_URL is not set, just connect to the default 
+    # port and localhost
+    client = MongoClient(os.getenv('MONGO_DB_URL', None))
     db = client[os.getenv('MONGO_DB_NAME', 'acaex')]
     
     coll = db['issuer']
